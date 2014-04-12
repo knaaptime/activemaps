@@ -1,5 +1,7 @@
 /**
  * Created by ffoti on 12/14/13.
+ 
+ 	edited by knaaptime on 4/11/14
  */
 // animation for time
 var loopcnt = 0;
@@ -25,13 +27,6 @@ function stop() {
 
 // create the legend and jquery interface objects
 $(function() {
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-44927674-1', 'synthicity.com');
-    ga('send', 'pageview');
     $(".inline").colorbox({inline:true, width:"50%", opacity: .6});
 
     var labels = [];
@@ -43,7 +38,7 @@ $(function() {
 
     $( "#slider" ).slider({
         min: 1,
-        max: 24,
+        max: 16,
         step: 1,
         slide: function( event, ui ) { redraw(ui.value); }
     });
@@ -63,7 +58,7 @@ $(function() {
 
 // pick the manually specified region or manually specified diary
 segment = null;
-if(document.URL.indexOf('?') == -1) var region = "newyork"; // default to new york since the data is available in default distribution
+if(document.URL.indexOf('?') == -1) var region = "baltimore"; // default to new york since the data is available in default distribution
 else {
     var region = document.URL.match(/region=([^&]+)/)[1];
     $('#regionchooser option[value='+region+']').attr('selected', 'selected');;
@@ -133,13 +128,13 @@ function readcsv(region,income) {
 
     d3.csv(fname, function(d) {
         return {
-            hhid:  +d.HHID,
-            perid: +d.PERID,
-            mode:  +d.MODE,
-            age:   +d.AGE,
-            hour:  +d.ARR_HR,
-            lon:   +d.XCORD,
-            lat:   +d.YCORD,
+            hhid:  +d.hhid,
+            perid: +d.perid,
+            mode:  +d.mode,
+            age:   +d.age,
+            hour:  +d.arr_hr,
+            lon:   +d.xcord,
+            lat:   +d.ycord,
             plon:  project([+d.XCORD,+d.YCORD])[0]-projbounds[0][0],
             plat:  project([+d.XCORD,+d.YCORD])[1]-projbounds[0][1],
         };
@@ -148,7 +143,7 @@ function readcsv(region,income) {
         rows.forEach(function(r) {
             var key = [r.hhid,r.perid];
             if(!(key in data)) {
-                r.mode = 6;
+                r.mode = 1;
                 data[key] = {'key': key, 'first': r};
             }
             data[key][r.hour] = r;
