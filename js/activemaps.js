@@ -1,7 +1,6 @@
 /**
  * Created by ffoti on 12/14/13.
- 
- 	edited by knaaptime on 4/11/14
+   Modified by knaaptime on 4/11/14
  */
 // animation for time
 var loopcnt = 0;
@@ -58,7 +57,7 @@ $(function() {
 
 // pick the manually specified region or manually specified diary
 segment = null;
-if(document.URL.indexOf('?') == -1) var region = "baltimore"; // default to new york since the data is available in default distribution
+if(document.URL.indexOf('?') == -1) var region = "baltimore"; // default to Baltimore since we want an Opportunity basemap
 else {
     var region = document.URL.match(/region=([^&]+)/)[1];
     $('#regionchooser option[value='+region+']').attr('selected', 'selected');;
@@ -135,8 +134,8 @@ function readcsv(region,income) {
             hour:  +d.arr_hr,
             lon:   +d.xcord,
             lat:   +d.ycord,
-            plon:  project([+d.XCORD,+d.YCORD])[0]-projbounds[0][0],
-            plat:  project([+d.XCORD,+d.YCORD])[1]-projbounds[0][1],
+            plon:  project([+d.xcord,+d.ycord])[0]-projbounds[0][0],
+            plat:  project([+d.xcord,+d.ycord])[1]-projbounds[0][1],
         };
     }, function(error, rows) {
 
@@ -204,7 +203,7 @@ function modecount(hour) {
     var spec = {};
     var b = map.getBounds();
     for(i=0;i<modes.length;i++) spec[i+1] = {"index": i, "label": modes[i], "value": 0};
-    spec[6]["value"] += 1;
+    spec[5]["value"] += 1;
     data.forEach(function(d) {
         var d = mostrecent(d,hour);
         if(d.lat<=b._southWest.lat || d.lat>=b._northEast.lat) return;

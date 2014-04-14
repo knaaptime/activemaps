@@ -3,7 +3,7 @@
    Modified by knaaptime on 4/11/14
  */
 
-// lost of available regions
+// list of available regions
 var REGIONLIST = ["baltimore", "sandiego", "newyork", "mexicocity", "bayarea", "monterey", "sacramento", "bakersfield", "losangeles", "fresno"];
 // center in lat/long of each region
 var REGIONCENTERS = {"baltimore": [39.282, -76.616], "sandiego": [32.73, -117.07], "monterey": [36.78, -121.85], "sacramento": [38.57, -121.5], "bakersfield": [35.33, -119.05], "fresno": [36.77, -119.72], "bayarea": [37.7792, -122.3391], "losangeles": [34.05, -118.24], "newyork": [40.78, -73.97], "mexicocity": [19.432, -99.133]};
@@ -25,7 +25,7 @@ var modecolor = function (d) {
 // default bounds, these are the bounds of california
 var defbounds = [[-124.475,42.223],[-114.604,32.04]];
 // override bounds for other regions
-var boundsd = {"newyork": [[-75.2,42.05],[-72.0,39.57]],"mexicocity":[[-99.517,19.792],[-98.66,19.079]], "baltimore": [[-77.160822,38.95594],[,-76.14731,39.652048]]}
+var boundsd = {"newyork": [[-75.2,42.05],[-72.0,39.57]],"mexicocity":[[-99.517,19.792],[-98.66,19.079]], "baltimore": [[-77.6662,38.8512],[-75.7999,39.7218]]}
 
 var get_file_name = function (region, income, segment) {
     var fname;
