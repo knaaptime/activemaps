@@ -1,20 +1,22 @@
 /**
  * Created by ffoti on 12/14/13.
-   Modified by knaaptime on 4/11/14
+ * Modified by knaaptime on 4/11/14
  */
+
+
 // animation for time
 var loopcnt = 0;
 function play() {
     if(loopcnt > 0) return;
-    loopcnt = 19;
-    $("#slider").slider('value',25-loopcnt);
-    redraw(25-loopcnt);
+    loopcnt = 16;
+    $("#slider").slider('value',17-loopcnt);
+    redraw(17-loopcnt);
     loopcnt--;
     (function myLoop () {
         setTimeout(function () {
             if (loopcnt <= 0) return;
-            $("#slider").slider('value',25-loopcnt);
-            redraw(25-loopcnt);
+            $("#slider").slider('value',17-loopcnt);
+            redraw(17-loopcnt);
             --loopcnt;
             myLoop();
         }, 2000)
@@ -202,8 +204,8 @@ function agecount(hour) {
 function modecount(hour) {
     var spec = {};
     var b = map.getBounds();
-    for(i=0;i<modes.length;i++) spec[i+1] = {"index": i, "label": modes[i], "value": 0};
-    spec[5]["value"] += 1;
+    for(i=0;i<modes.length;i++) spec[i+1] = {"index": i, "label": modes[i], "value": 1};
+    spec[4]["value"] += 1;
     data.forEach(function(d) {
         var d = mostrecent(d,hour);
         if(d.lat<=b._southWest.lat || d.lat>=b._northEast.lat) return;
@@ -249,7 +251,7 @@ function rechart() {
 }
 
 function redraw(hour) {
-    d3.select("#metainfo").text((hour<10?"0":"")+hour+":00");
+    d3.select("#metainfo").text(hour);
     g.selectAll("circle")
         .data(data)
         .attr("r", function(d) { return d['first'].age/15/Math.sqrt(scale); })

@@ -12,13 +12,13 @@
 <body>
 <div id="map" style="width:100%; height:100%; position:fixed; left:0; top:0; overflow:hidden;"></div>
 <div id=metainfo unselectable="on" class="unselectable" style="border-width: thin; border-color: #262626; border-style: solid; position: absolute; left: 45px; top: 10px; background-color: #262626; color: white; font-size: 24px; font-family: Arial; text-shadow: 2px 2px #888; border-radius: 4px;">01:00</div>
-<div id="slider" style="position: absolute; top: 17px; left: 120px; width:240px;"></div>
+<div id="slider" style="position: absolute; top: 17px; left: 120px; width:160px;"></div>
 <!--<div id="legend" class="info legend" style="position: absolute; top: 10px; right: 10px;"></div>-->
 <div id="regionchooser" style="position:absolute; left: 45px; top: 45px; border-width: thin; border-color: #262626; border-style: solid; background-color: #262626; font-family: Arial; font-size: 14px; border-radius: 4px; color: white;">
 Region:<br>
 <select style="width: 100px;">
+    <option value=baltimore selected>Baltimore</option>
     <option value=newyork>New York</option>
-     <option value=baltimore selected>Baltimore</option>
     <option value=mexicocity>Mexico City</option>
     <option value=bayarea>Bay Area</option>
     <option value=losangeles>Los Angeles</option>
@@ -34,13 +34,13 @@ Region:<br>
 <div id="incomechooser" style="position:absolute; left: 155px; top: 45px; border-width: thin; border-color: #262626; border-style: solid; background-color: #262626; font-family: Arial; font-size: 14px; border-radius: 4px; color: white;">
 Random Assignment:<br>
 <select style="width: 110px;">
-    <option value=1 selected>Treatment</option>
-    <option value=2>Section 8</option>
+    <option value=1>Treatment</option>
+    <option value=2 selected>Section 8</option>
     <option value=3>Control</option>
 </select>
 </div>
 <div>
-<p><a style="position:absolute; left: 0px; bottom: 0px; border-radius: 4px;" href="http://www.synthicity.com"><img height=23px  src="images/logo.png"/></a></p>
+<p><a style="position:absolute; left: 0px; bottom: 0px; border-radius: 4px; opacity: 0.7" href="http://www.smartgrowth.umd.edu"><img height=23px  src="images/ncsg_combined.png"/></a></p>
 </div>
 <div>
 <p><a style="position:absolute; left: 362px; top: 8px;" href="javascript:play();"><img height=33px  src="images/button_black_play.png"/></a></p>
@@ -63,7 +63,6 @@ Random Assignment:<br>
             <p><a href="#" onclick="$.colorbox.close();" color=black>Close</a></p>
             </div>
         </div>
-</pre>
 <script src="js/leaflet.js"></script>
 <script type="text/javascript" src="js/tile.stamen.js"></script>
 <script src="js/d3.v3.js"></script>

@@ -25,7 +25,7 @@ var modecolor = function (d) {
 // default bounds, these are the bounds of california
 var defbounds = [[-124.475,42.223],[-114.604,32.04]];
 // override bounds for other regions
-var boundsd = {"newyork": [[-75.2,42.05],[-72.0,39.57]],"mexicocity":[[-99.517,19.792],[-98.66,19.079]], "baltimore": [[-77.6662,38.8512],[-75.7999,39.7218]]}
+var boundsd = {"newyork": [[-75.2,42.05],[-72.0,39.57]],"mexicocity":[[-99.517,19.792],[-98.66,19.079]], "baltimore": [[-77.666,39.851],[-75.799,38.722]]}
 
 var get_file_name = function (region, income, segment) {
     var fname;
